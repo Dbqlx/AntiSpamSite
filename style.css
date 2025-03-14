@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+#verify-container {
+    text-align: center;
+}
+
+#verify-btn {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#verify-btn:disabled {
+    background-color: #ccc;
+}
+
+#status {
+    margin-top: 20px;
+    color: #4CAF50;
+    font-size: 18px;
+    font-weight: bold;
+}
