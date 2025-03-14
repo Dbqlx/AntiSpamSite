@@ -6,40 +6,27 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     overflow: hidden;
-    height: 100vh;
-}
-
-#snowCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1; /* Keeps snow in the background */
 }
 
 .container {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2; /* Ensures text & button are above the canvas */
-    text-align: center;
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
 button {
     background-color: #3498db;
     color: white;
-    font-size: 24px;
-    padding: 15px 50px;
+    font-size: 20px;
+    padding: 15px 40px;
     border: none;
-    border-radius: 50px; /* Makes it round */
+    border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -51,4 +38,13 @@ button:hover {
 button:disabled {
     background-color: #555;
     cursor: not-allowed;
+}
+
+#snowCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
