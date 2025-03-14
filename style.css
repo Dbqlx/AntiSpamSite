@@ -1,33 +1,74 @@
+/* Apply black background and center the content */
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
 }
 
-#verify-container {
+/* Style the container with centered text */
+.container {
     text-align: center;
 }
 
-#verify-btn {
-    background-color: #007bff;
+/* Styling for the title */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+/* Styling for the button with rounded corners */
+.verify-button {
+    background-color: #3498db;
     color: white;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-#verify-btn:disabled {
-    background-color: #ccc;
-}
-
-#status {
-    margin-top: 20px;
-    color: #4CAF50;
+    padding: 15px 30px;
     font-size: 18px;
-    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+    z-index: 2;
+}
+
+.verify-button:hover {
+    background-color: #2980b9;
+}
+
+/* Snow effect styling */
+.snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Snowflakes styling */
+.snowflake {
+    position: absolute;
+    color: #ffffff;
+    font-size: 24px;
+    user-select: none;
+    opacity: 0.8;
+    animation: snow 10s linear infinite;
+}
+
+/* Snowfall animation */
+@keyframes snow {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }
