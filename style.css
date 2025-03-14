@@ -11,31 +11,31 @@ body {
     height: 100vh;
     position: relative;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 h1 {
     font-size: 3rem;
     text-align: center;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: #fff;
+    margin-bottom: 20px; /* Add space above the button */
     z-index: 1;
 }
 
 .button {
-    display: block;
-    margin: 20px auto;
-    padding: 15px 30px;
-    font-size: 1.2rem;
+    padding: 20px 40px;
+    font-size: 1.5rem; /* Make the button bigger */
     background-color: #3498db;
     color: white;
     border: none;
-    border-radius: 50px; /* Round corners */
+    border-radius: 30px; /* Round corners */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     z-index: 1;
+    margin-top: 20px;
 }
 
 .button:hover {
