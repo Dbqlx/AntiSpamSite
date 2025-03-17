@@ -17,7 +17,7 @@ function createSnowflake() {
 
 function animateSnowflakes() {
     snowflakes.forEach(snowflake => {
-        const speed = parseFloat(snowflake.style.fontSize) / 69; // Speed based on size
+        const speed = parseFloat(snowflake.style.fontSize) / 4; // Speed based on size
         let top = parseFloat(snowflake.style.top);
         top += speed;
 
