@@ -9,7 +9,7 @@ function createSnowflake() {
     // Randomize the starting position
     snowflake.style.left = `${Math.random() * window.innerWidth}px`;
     snowflake.style.top = `${Math.random() * -100}px`; // Start above the screen
-    snowflake.style.fontSize = `${Math.random() * 20 + 10}px`; // Random size for flakes
+    snowflake.style.fontSize = `${Math.random() * 30 + 15}px`; // Bigger flakes for better visual effect
 
     document.body.appendChild(snowflake);
     snowflakes.push(snowflake);
@@ -32,8 +32,8 @@ function animateSnowflakes() {
     requestAnimationFrame(animateSnowflakes);
 }
 
-// Create a number of snowflakes
-for (let i = 0; i < 100; i++) {
+// Create a number of snowflakes (now in a loop)
+for (let i = 0; i < 150; i++) { // More flakes for a denser effect
     createSnowflake();
 }
 
